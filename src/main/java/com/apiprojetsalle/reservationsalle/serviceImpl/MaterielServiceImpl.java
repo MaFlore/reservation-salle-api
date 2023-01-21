@@ -5,9 +5,11 @@ import com.apiprojetsalle.reservationsalle.model.Materiel;
 import com.apiprojetsalle.reservationsalle.repository.MaterielRepository;
 import com.apiprojetsalle.reservationsalle.service.MaterielService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MaterielServiceImpl implements MaterielService {
     @Autowired
     public MaterielRepository materielRepository;

@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Responsable;
 import com.apiprojetsalle.reservationsalle.repository.ResponsableRepository;
 import com.apiprojetsalle.reservationsalle.service.ResponsableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ResponsableServiceImpl implements ResponsableService {
     @Autowired
     public ResponsableRepository responsableRepository;

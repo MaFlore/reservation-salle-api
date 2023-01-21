@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Administrateur;
 import com.apiprojetsalle.reservationsalle.repository.AdministrateurRepository;
 import com.apiprojetsalle.reservationsalle.service.AdministrateurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AdministrateurServiceImpl implements AdministrateurService {
 
     @Autowired

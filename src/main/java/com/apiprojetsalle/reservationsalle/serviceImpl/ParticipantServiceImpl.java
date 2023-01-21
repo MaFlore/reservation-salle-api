@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Participant;
 import com.apiprojetsalle.reservationsalle.repository.ParticipantRepository;
 import com.apiprojetsalle.reservationsalle.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ParticipantServiceImpl implements ParticipantService {
     @Autowired
     public ParticipantRepository participantRepository;

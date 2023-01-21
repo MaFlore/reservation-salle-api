@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Categorie;
 import com.apiprojetsalle.reservationsalle.repository.CategorieRepository;
 import com.apiprojetsalle.reservationsalle.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CategorieServiceImpl implements CategorieService {
 
     @Autowired

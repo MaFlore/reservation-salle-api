@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Client;
 import com.apiprojetsalle.reservationsalle.repository.ClientRepository;
 import com.apiprojetsalle.reservationsalle.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ClientServiceImpl implements ClientService {
 
     @Autowired

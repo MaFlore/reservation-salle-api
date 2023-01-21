@@ -4,9 +4,11 @@ import com.apiprojetsalle.reservationsalle.model.Salle;
 import com.apiprojetsalle.reservationsalle.repository.SalleRepository;
 import com.apiprojetsalle.reservationsalle.service.SalleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SalleServiceImpl implements SalleService {
     @Autowired
     public SalleRepository salleRepository;
