@@ -20,4 +20,23 @@ public class Client extends Personne {
 	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
 	private Set<Reservation> reservations;
 
+	public Client() {
+	}
+
+	public Client(String nom, String prenom, String username, String password, String email, String telephone) {
+		super(nom, prenom, username, password, email, telephone);
+	}
+
+	@Override
+	public String toString() {
+		return "Client{" +
+				"reservations=" + reservations +
+				", nom='" + nom + '\'' +
+				", prenom='" + prenom + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", telephone='" + telephone + '\'' +
+				'}';
+	}
 }

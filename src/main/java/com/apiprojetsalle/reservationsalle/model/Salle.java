@@ -55,10 +55,9 @@ public class Salle {
 	public Salle() {
 	}
 
-	public Salle(Long id, String photo, String matricule, String nom, Integer capacite, Double prix, Boolean statut,
+	public Salle(String photo, String matricule, String nom, Integer capacite, Double prix, Boolean statut,
 				 Responsable responsable) {
 		super();
-		this.id = id;
 		this.photo = photo;
 		this.matricule = matricule;
 		this.nom = nom;

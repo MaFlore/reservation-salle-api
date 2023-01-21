@@ -31,8 +31,7 @@ public class Participant {
     public Participant() {
     }
 
-    public Participant(Long id, String nom, String prenom, String email, String telephone) {
-        this.id = id;
+    public Participant(String nom, String prenom, String email, String telephone) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;

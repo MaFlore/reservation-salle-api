@@ -34,9 +34,8 @@ public class Categorie {
 	public Categorie() {
 	}
 
-	public Categorie(Long id, String code, String libelle, Set<Materiel> materiels) {
+	public Categorie(String code, String libelle, Set<Materiel> materiels) {
 		super();
-		this.id = id;
 		this.code = code;
 		this.libelle = libelle;
 		this.materiels = materiels;

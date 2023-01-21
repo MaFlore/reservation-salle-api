@@ -18,4 +18,11 @@ public class Administrateur extends Personne {
 	@Column(name = "id")
 	private Long id;
 
+	public Administrateur() {
+
+	}
+
+	public Administrateur(String nom, String prenom, String username, String password, String email, String telephone) {
+		super(nom, prenom, username, password, email, telephone);
+	}
 }

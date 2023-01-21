@@ -30,10 +30,8 @@ public class Responsable extends Personne {
 	public Responsable() {
 	}
 
-	public Responsable(Long id, Set<Salle> salles) {
-		super();
-		this.id = id;
-		this.salles = salles;
+	public Responsable(String nom, String prenom, String username, String password, String email, String telephone) {
+		super(nom, prenom, username, password, email, telephone);
 	}
 
 	public Long getId() {
@@ -51,7 +49,17 @@ public class Responsable extends Personne {
 	public void setSalles(Set<Salle> salles) {
 		this.salles = salles;
 	}
-	
-	
 
+	@Override
+	public String toString() {
+		return "Responsable{" +
+				"salles=" + salles +
+				", nom='" + nom + '\'' +
+				", prenom='" + prenom + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", telephone='" + telephone + '\'' +
+				'}';
+	}
 }

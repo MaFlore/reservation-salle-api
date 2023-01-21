@@ -44,10 +44,9 @@ public class Personne {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Personne(Long id, String nom, String prenom, String username, String password, String email,
+	public Personne(String nom, String prenom, String username, String password, String email,
 			String telephone) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.username = username;

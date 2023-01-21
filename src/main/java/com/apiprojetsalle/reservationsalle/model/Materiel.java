@@ -39,10 +39,9 @@ public class Materiel {
 	public Materiel() {
 	}
 
-	public Materiel(Long id, String matricule, String nom, String description, Double prix, Boolean statut,
+	public Materiel(String matricule, String nom, String description, Double prix, Boolean statut,
 					Categorie categorie) {
 		super();
-		this.id = id;
 		this.matricule = matricule;
 		this.nom = nom;
 		this.description = description;
