@@ -2,6 +2,7 @@ package com.apiprojetsalle.reservationsalle.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "reservations")
@@ -25,23 +26,23 @@ public class Reservation {
     @JoinColumn(name = "client_id")
     private Client client;
 
-    /*Ajout de la relation ManyToOne entre Reservation et ReservationSalle*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation;
+    /*Ajout de la relation OneToMany entre Reservation et ReservationSalle*/
+    @OneToMany(mappedBy = "reservation", fetch = FetchType.LAZY)
+    private Set<ReservationSalle> reservationSalles;
 
     /*Ajout de la relation OneToOne entre Reservation et Evenement*/
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "evenement_id", referencedColumnName = "id")
-    private Evenement evenement ;
+    private Evenement evenement;
 
     public Reservation() {
-
     }
 
-    public Reservation(Date dateDebut, Date dateFin) {
+    public Reservation(Date dateDebut, Date dateFin, Client client, Evenement evenement) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
+        this.client = client;
+        this.evenement = evenement;
     }
 
     public Integer getId() {
@@ -72,12 +73,12 @@ public class Reservation {
         this.client = client;
     }
 
-    public Reservation getReservation() {
-        return reservation;
+    public Set<ReservationSalle> getReservationSalles() {
+        return reservationSalles;
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
+    public void setReservationSalles(Set<ReservationSalle> reservationSalles) {
+        this.reservationSalles = reservationSalles;
     }
 
     public Evenement getEvenement() {
@@ -94,7 +95,7 @@ public class Reservation {
                 "dateDebut=" + dateDebut +
                 ", dateFin=" + dateFin +
                 ", client=" + client +
-                ", reservation=" + reservation +
+                ", reservationSalles=" + reservationSalles +
                 ", evenement=" + evenement +
                 '}';
     }

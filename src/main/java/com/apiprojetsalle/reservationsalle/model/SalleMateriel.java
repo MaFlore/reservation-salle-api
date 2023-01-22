@@ -28,23 +28,26 @@ public class SalleMateriel {
 	@Column(name="estLoue",nullable=false)
 	private boolean estLoue;
 
-	/*Ajout de la relation OneToMany entre SalleMateriel et Salle*/
-	@OneToMany(mappedBy = "salleMateriel",fetch = FetchType.LAZY)
-    private Set<Salle> salles;
+	/*Ajout de la relation ManyToOne entre SalleMateriel et Salle*/
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name = "salle_id")
+	private SalleMateriel salleMateriel;
 
-	/*Ajout de la relation OneToMany entre SalleMateriel et Materiel*/
-	@OneToMany(mappedBy = "salleMateriel",fetch = FetchType.LAZY)
-    private Set<Materiel> materiels;
+	/*Ajout de la relation ManyToOne entre SalleMateriel et Materiel*/
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name = "materiel_id")
+	private SalleMateriel materielSalle;
 
 	public SalleMateriel() {
-
 	}
 
-	public SalleMateriel(Date dateDebut, Date dateFin, boolean statut, boolean estLoue) {
+	public SalleMateriel(Date dateDebut, Date dateFin, boolean statut, boolean estLoue, SalleMateriel salleMateriel, SalleMateriel materielSalle) {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.statut = statut;
 		this.estLoue = estLoue;
+		this.salleMateriel = salleMateriel;
+		this.materielSalle = materielSalle;
 	}
 
 	public Long getId() {
@@ -83,20 +86,20 @@ public class SalleMateriel {
 		this.estLoue = estLoue;
 	}
 
-	public Set<Salle> getSalles() {
-		return salles;
+	public SalleMateriel getSalleMateriel() {
+		return salleMateriel;
 	}
 
-	public void setSalles(Set<Salle> salles) {
-		this.salles = salles;
+	public void setSalleMateriel(SalleMateriel salleMateriel) {
+		this.salleMateriel = salleMateriel;
 	}
 
-	public Set<Materiel> getMateriels() {
-		return materiels;
+	public SalleMateriel getMaterielSalle() {
+		return materielSalle;
 	}
 
-	public void setMateriels(Set<Materiel> materiels) {
-		this.materiels = materiels;
+	public void setMaterielSalle(SalleMateriel materielSalle) {
+		this.materielSalle = materielSalle;
 	}
 
 	@Override
@@ -106,8 +109,8 @@ public class SalleMateriel {
 				", dateFin=" + dateFin +
 				", statut=" + statut +
 				", estLoue=" + estLoue +
-				", salles=" + salles +
-				", materiels=" + materiels +
+				", salleMateriel=" + salleMateriel +
+				", materielSalle=" + materielSalle +
 				'}';
 	}
 }

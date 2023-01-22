@@ -1,14 +1,7 @@
 package com.apiprojetsalle.reservationsalle.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "salles")
@@ -42,22 +35,15 @@ public class Salle {
     @JoinColumn(name = "responsable_id")
     private Responsable responsable;
 
-	/*Ajout de la relation ManyToOne entre Salle et SalleMateriel*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "salle_id")
-    private SalleMateriel salleMateriel;
+	/*Ajout de la relation OneToMany entre Salle et SalleMateriel*/
+	@OneToMany(mappedBy = "salleMateriel",fetch = FetchType.LAZY)
+	private Set<SalleMateriel> salleMateriels;
 
-	/*Ajout de la relation ManyToOne entre Salle et ReservationSalle*/
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name = "id_salle")
-	private Salle salle;
+	/*Ajout de la relation OneToMany entre Salle et ReservationSalle*/
+	@OneToMany(mappedBy = "salle", fetch = FetchType.LAZY)
+	private Set<ReservationSalle> reservationSalles;
 
-	public Salle() {
-	}
-
-	public Salle(String photo, String matricule, String nom, Integer capacite, Double prix, Boolean statut,
-				 Responsable responsable) {
-		super();
+	public Salle(String photo, String matricule, String nom, Integer capacite, Double prix, Boolean statut, Responsable responsable) {
 		this.photo = photo;
 		this.matricule = matricule;
 		this.nom = nom;
@@ -131,6 +117,22 @@ public class Salle {
 		this.responsable = responsable;
 	}
 
+	public Set<SalleMateriel> getSalleMateriels() {
+		return salleMateriels;
+	}
+
+	public void setSalleMateriels(Set<SalleMateriel> salleMateriels) {
+		this.salleMateriels = salleMateriels;
+	}
+
+	public Set<ReservationSalle> getReservationSalles() {
+		return reservationSalles;
+	}
+
+	public void setReservationSalles(Set<ReservationSalle> reservationSalles) {
+		this.reservationSalles = reservationSalles;
+	}
+
 	@Override
 	public String toString() {
 		return "Salle{" +
@@ -141,8 +143,8 @@ public class Salle {
 				", prix=" + prix +
 				", statut=" + statut +
 				", responsable=" + responsable +
-				", salleMateriel=" + salleMateriel +
-				", salle=" + salle +
+				", salleMateriels=" + salleMateriels +
+				", reservationSalles=" + reservationSalles +
 				'}';
 	}
 }

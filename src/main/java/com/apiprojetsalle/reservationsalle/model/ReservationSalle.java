@@ -15,20 +15,23 @@ public class ReservationSalle {
     @Column(name = "nombres_salles")
     private Integer nombresSalles;
 
-    /*Ajout de la relation OneToMany entre ReservationSalle et Reservation*/
-    @OneToMany(mappedBy = "reservation", fetch = FetchType.LAZY)
-    private Set<Reservation> reservations;
+    /*Ajout de la relation ManyToOne entre ReservationSalle et Reservation*/
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 
-    /*Ajout de la relation OneToMany entre ReservationSalle et Salle*/
-    @OneToMany(mappedBy = "salle", fetch = FetchType.LAZY)
-    private Set<Salle> salles;
+    /*Ajout de la relation ManyToOne entre ReservationSalle et Salle*/
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "salle_id")
+    private Salle salle;
 
-    public ReservationSalle(){
-
+    public ReservationSalle() {
     }
 
-    public ReservationSalle(Integer nombresSalles) {
+    public ReservationSalle(Integer nombresSalles, Reservation reservation, Salle salle) {
         this.nombresSalles = nombresSalles;
+        this.reservation = reservation;
+        this.salle = salle;
     }
 
     public Long getId() {
@@ -43,29 +46,28 @@ public class ReservationSalle {
         this.nombresSalles = nombresSalles;
     }
 
-    public Set<Reservation> getReservations() {
-        return reservations;
+    public Reservation getReservation() {
+        return reservation;
     }
 
-    public void setReservations(Set<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 
-    public Set<Salle> getSalles() {
-        return salles;
+    public Salle getSalle() {
+        return salle;
     }
 
-    public void setSalles(Set<Salle> salles) {
-        this.salles = salles;
+    public void setSalle(Salle salle) {
+        this.salle = salle;
     }
 
     @Override
     public String toString() {
         return "ReservationSalle{" +
                 "nombresSalles=" + nombresSalles +
-                ", reservations=" + reservations +
-                ", salles=" + salles +
+                ", reservation=" + reservation +
+                ", salle=" + salle +
                 '}';
     }
-
 }

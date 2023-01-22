@@ -1,6 +1,7 @@
 package com.apiprojetsalle.reservationsalle.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "materiels")
@@ -25,23 +26,20 @@ public class Materiel {
 	
 	@Column(name = "statut", nullable = false)
 	private Boolean statut;
-	
+
+	/*Ajout de la relation OneToMany entre Materiel et SalleMateriel*/
+	@OneToMany(mappedBy = "materielSalle",fetch = FetchType.LAZY)
+	private Set<SalleMateriel> salleMateriels;
+
 	/*Ajout de la relation ManyToOne entre Materiel et CategorieMateriel*/
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
 
-	/*Ajout de la relation ManyToOne entre Materiel et SalleMateriel*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "materiel_id")
-    private SalleMateriel salleMateriel;
-
 	public Materiel() {
 	}
 
-	public Materiel(String matricule, String nom, String description, Double prix, Boolean statut,
-					Categorie categorie) {
-		super();
+	public Materiel(String matricule, String nom, String description, Double prix, Boolean statut, Categorie categorie) {
 		this.matricule = matricule;
 		this.nom = nom;
 		this.description = description;
@@ -52,10 +50,6 @@ public class Materiel {
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getMatricule() {
@@ -98,6 +92,14 @@ public class Materiel {
 		this.statut = statut;
 	}
 
+	public Set<SalleMateriel> getSalleMateriels() {
+		return salleMateriels;
+	}
+
+	public void setSalleMateriels(Set<SalleMateriel> salleMateriels) {
+		this.salleMateriels = salleMateriels;
+	}
+
 	public Categorie getCategorie() {
 		return categorie;
 	}
@@ -114,8 +116,8 @@ public class Materiel {
 				", description='" + description + '\'' +
 				", prix=" + prix +
 				", statut=" + statut +
+				", salleMateriels=" + salleMateriels +
 				", categorie=" + categorie +
-				", salleMateriel=" + salleMateriel +
 				'}';
 	}
 }
