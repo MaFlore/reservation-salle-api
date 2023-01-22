@@ -43,6 +43,9 @@ public class Salle {
 	@OneToMany(mappedBy = "salle", fetch = FetchType.LAZY)
 	private Set<ReservationSalle> reservationSalles;
 
+	public Salle() {
+	}
+
 	public Salle(String photo, String matricule, String nom, Integer capacite, Double prix, Boolean statut, Responsable responsable) {
 		this.photo = photo;
 		this.matricule = matricule;
