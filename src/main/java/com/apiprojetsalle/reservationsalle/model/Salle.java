@@ -31,7 +31,7 @@ public class Salle {
 	private Boolean statut;
 	
 	/*Ajout de la relation ManyToOne entre Salle et Responsable*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "responsable_id")
     private Responsable responsable;
 

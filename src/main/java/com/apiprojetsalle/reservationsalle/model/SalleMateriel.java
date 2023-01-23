@@ -29,12 +29,12 @@ public class SalleMateriel {
 	private boolean estLoue;
 
 	/*Ajout de la relation ManyToOne entre SalleMateriel et Salle*/
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
 	@JoinColumn(name = "salle_id")
 	private SalleMateriel salleMateriel;
 
 	/*Ajout de la relation ManyToOne entre SalleMateriel et Materiel*/
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
 	@JoinColumn(name = "materiel_id")
 	private SalleMateriel materielSalle;
 

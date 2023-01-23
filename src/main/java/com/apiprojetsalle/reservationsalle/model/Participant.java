@@ -24,7 +24,7 @@ public class Participant {
     private String telephone;
 
     /*Ajout de la relation  ManyToOne entre Participant et Evenement*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "participant_id")
     private Participant participant;
 

@@ -16,12 +16,12 @@ public class ReservationSalle {
     private Integer nombresSalles;
 
     /*Ajout de la relation ManyToOne entre ReservationSalle et Reservation*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
     /*Ajout de la relation ManyToOne entre ReservationSalle et Salle*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "salle_id")
     private Salle salle;
 

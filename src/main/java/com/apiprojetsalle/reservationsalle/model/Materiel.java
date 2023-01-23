@@ -32,7 +32,7 @@ public class Materiel {
 	private Set<SalleMateriel> salleMateriels;
 
 	/*Ajout de la relation ManyToOne entre Materiel et CategorieMateriel*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
 

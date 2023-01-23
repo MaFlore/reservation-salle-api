@@ -22,7 +22,7 @@ public class Reservation {
     private Date dateFin;
 
     /*Ajout de la relation ManyToOne entre Reservation et Client*/
-    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne()
     @JoinColumn(name = "client_id")
     private Client client;
 
