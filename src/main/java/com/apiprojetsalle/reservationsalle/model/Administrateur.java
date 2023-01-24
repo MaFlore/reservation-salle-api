@@ -16,7 +16,7 @@ public class Administrateur extends Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id;
+	protected Long id;
 
 	public Administrateur() {
 
@@ -25,4 +25,10 @@ public class Administrateur extends Personne {
 	public Administrateur(String nom, String prenom, String username, String password, String email, String telephone) {
 		super(nom, prenom, username, password, email, telephone);
 	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
 }

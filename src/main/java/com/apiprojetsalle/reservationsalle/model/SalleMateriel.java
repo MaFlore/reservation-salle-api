@@ -31,23 +31,23 @@ public class SalleMateriel {
 	/*Ajout de la relation ManyToOne entre SalleMateriel et Salle*/
 	@ManyToOne()
 	@JoinColumn(name = "salle_id")
-	private SalleMateriel salleMateriel;
+	private Salle salle;
 
 	/*Ajout de la relation ManyToOne entre SalleMateriel et Materiel*/
 	@ManyToOne()
 	@JoinColumn(name = "materiel_id")
-	private SalleMateriel materielSalle;
+	private Materiel materiel;
 
 	public SalleMateriel() {
 	}
 
-	public SalleMateriel(Date dateDebut, Date dateFin, boolean statut, boolean estLoue, SalleMateriel salleMateriel, SalleMateriel materielSalle) {
+	public SalleMateriel(Date dateDebut, Date dateFin, boolean statut, boolean estLoue, Salle salle, Materiel materiel) {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.statut = statut;
 		this.estLoue = estLoue;
-		this.salleMateriel = salleMateriel;
-		this.materielSalle = materielSalle;
+		this.salle = salle;
+		this.materiel = materiel;
 	}
 
 	public Long getId() {
@@ -86,20 +86,20 @@ public class SalleMateriel {
 		this.estLoue = estLoue;
 	}
 
-	public SalleMateriel getSalleMateriel() {
-		return salleMateriel;
+	public Salle getSalle() {
+		return salle;
 	}
 
-	public void setSalleMateriel(SalleMateriel salleMateriel) {
-		this.salleMateriel = salleMateriel;
+	public void setSalle(Salle salle) {
+		this.salle = salle;
 	}
 
-	public SalleMateriel getMaterielSalle() {
-		return materielSalle;
+	public Materiel getMateriel() {
+		return materiel;
 	}
 
-	public void setMaterielSalle(SalleMateriel materielSalle) {
-		this.materielSalle = materielSalle;
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
 	}
 
 	@Override
@@ -109,8 +109,8 @@ public class SalleMateriel {
 				", dateFin=" + dateFin +
 				", statut=" + statut +
 				", estLoue=" + estLoue +
-				", salleMateriel=" + salleMateriel +
-				", materielSalle=" + materielSalle +
+				", salle=" + salle +
+				", materiel=" + materiel +
 				'}';
 	}
 }

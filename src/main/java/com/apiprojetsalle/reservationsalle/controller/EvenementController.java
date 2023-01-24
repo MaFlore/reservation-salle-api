@@ -59,7 +59,7 @@ public class EvenementController {
     }
 
     @RequestMapping(value = "/evenement/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Evenement updateEvenement(@RequestBody Evenement evenement, @PathVariable  int id) {
+    public Evenement updateEvenement(@RequestBody Evenement evenement) {
 
         try {
             evenement = this.evenementService.update(evenement);

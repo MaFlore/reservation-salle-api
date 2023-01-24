@@ -28,7 +28,7 @@ public class Materiel {
 	private Boolean statut;
 
 	/*Ajout de la relation OneToMany entre Materiel et SalleMateriel*/
-	@OneToMany(mappedBy = "materielSalle",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "materiel",fetch = FetchType.LAZY)
 	private Set<SalleMateriel> salleMateriels;
 
 	/*Ajout de la relation ManyToOne entre Materiel et CategorieMateriel*/

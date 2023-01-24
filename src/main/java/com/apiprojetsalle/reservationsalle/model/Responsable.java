@@ -21,7 +21,7 @@ public class Responsable extends Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id;
+	protected Long id;
 
 	/*Ajout de la relation OneToMany entre Responsable et Salle*/
 	@OneToMany(mappedBy = "responsable",fetch = FetchType.LAZY)

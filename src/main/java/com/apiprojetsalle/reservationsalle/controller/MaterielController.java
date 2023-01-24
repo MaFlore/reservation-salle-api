@@ -59,7 +59,7 @@ public class MaterielController {
     }
 
     @RequestMapping(value = "/materiel/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Materiel updateMateriel(@RequestBody Materiel materiel, @PathVariable  int id) {
+    public Materiel updateMateriel(@RequestBody Materiel materiel) {
 
         try {
             materiel = this.materielService.update(materiel);

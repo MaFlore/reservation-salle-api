@@ -34,11 +34,12 @@ public class Evenement {
     private Date dateFin;
 
     /*Ajout de la relation OneToOne entre Evenement et Reservation*/
-    @OneToOne(mappedBy = "evenement")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "reservation_id", referencedColumnName = "id")
     private Reservation reservation;
 
     /*Ajout de la relation OneToMany entre Evenement et Participant*/
-    @OneToMany(mappedBy = "participant", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "evenement", fetch = FetchType.LAZY)
     private Set<Participant> participants;
 
     public Evenement() {

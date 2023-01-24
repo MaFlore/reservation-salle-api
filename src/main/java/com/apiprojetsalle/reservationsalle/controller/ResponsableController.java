@@ -60,7 +60,7 @@ public class ResponsableController {
     }
 
     @RequestMapping(value = "/responsable/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Responsable updateResponsable(@RequestBody Responsable responsable, @PathVariable  int id) {
+    public Responsable updateResponsable(@RequestBody Responsable responsable) {
 
         try {
             responsable = this.responsableService.update(responsable);

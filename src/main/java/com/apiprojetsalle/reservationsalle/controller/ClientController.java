@@ -59,7 +59,7 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/client/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Client updateClient(@RequestBody Client client, @PathVariable  int id) {
+    public Client updateClient(@RequestBody Client client) {
 
         try {
             client = this.clientService.update(client);

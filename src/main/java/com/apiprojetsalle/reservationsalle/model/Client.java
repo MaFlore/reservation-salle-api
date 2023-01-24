@@ -14,7 +14,7 @@ public class Client extends Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private Long id;
+	protected Long id;
 
 	/*Ajout de la relation OneToMany entre Client et Reservation*/
 	@OneToMany(mappedBy = "client",fetch = FetchType.LAZY)
@@ -25,6 +25,19 @@ public class Client extends Personne {
 
 	public Client(String nom, String prenom, String username, String password, String email, String telephone) {
 		super(nom, prenom, username, password, email, telephone);
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	@Override

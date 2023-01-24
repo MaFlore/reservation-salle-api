@@ -36,7 +36,7 @@ public class Salle {
     private Responsable responsable;
 
 	/*Ajout de la relation OneToMany entre Salle et SalleMateriel*/
-	@OneToMany(mappedBy = "salleMateriel",fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "salle",fetch = FetchType.LAZY)
 	private Set<SalleMateriel> salleMateriels;
 
 	/*Ajout de la relation OneToMany entre Salle et ReservationSalle*/

@@ -1,12 +1,10 @@
 package com.apiprojetsalle.reservationsalle.controller;
 
 import com.apiprojetsalle.reservationsalle.model.Categorie;
+import com.apiprojetsalle.reservationsalle.model.Client;
 import com.apiprojetsalle.reservationsalle.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +31,49 @@ public class CategorieController {
 
         return categories;
 
+    }
+
+    @RequestMapping(value = "/categorie/{id}", method = RequestMethod.GET)
+    public Categorie getOneCategorie(@PathVariable Long id) {
+
+        Categorie categorie = new Categorie();
+
+        try {
+            categorie = this.categorieService.findById(id);
+        } catch (Exception e) {
+            System.out.println("Erreur " + e.getMessage());
+        }
+
+        return categorie;
+    }
+
+    @RequestMapping(value = "/categorie/ajouter", method = RequestMethod.POST, headers = "accept=Application/json")
+    public Categorie saveCategorie(@RequestBody Categorie categorie) {
+
+        try {
+            categorie = this.categorieService.save(categorie);
+        } catch (Exception e) {
+            System.out.println("Erreur " + e.getMessage());
+        }
+
+        return categorie;
+    }
+
+    @RequestMapping(value = "/categorie/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
+    public Categorie updateCategorie(@RequestBody Categorie categorie) {
+
+        try {
+            categorie = this.categorieService.update(categorie);
+        } catch (Exception e) {
+            System.out.println("Erreur " + e.getMessage());
+        }
+
+        return categorie;
+
+    }
+
+    @RequestMapping(value = "/categorie/supprimer/{id}", method = RequestMethod.DELETE, headers = "accept=Application/json")
+    public void deleteCategorie(@PathVariable Long id) {
+        this.categorieService.deleteById(id);
     }
 }

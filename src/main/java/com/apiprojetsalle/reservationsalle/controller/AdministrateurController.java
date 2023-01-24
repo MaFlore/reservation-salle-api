@@ -60,7 +60,7 @@ public class AdministrateurController {
     }
 
     @RequestMapping(value = "/admin/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Administrateur updateAdmin(@RequestBody Administrateur administrateur, @PathVariable  int id) {
+    public Administrateur updateAdmin(@RequestBody Administrateur administrateur) {
 
         try {
             administrateur = this.administrateurService.update(administrateur);

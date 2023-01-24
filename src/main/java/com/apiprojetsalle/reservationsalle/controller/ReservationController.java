@@ -59,7 +59,7 @@ public class ReservationController {
     }
 
     @RequestMapping(value = "/reservation/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Reservation updateReservation(@RequestBody Reservation reservation, @PathVariable  int id) {
+    public Reservation updateReservation(@RequestBody Reservation reservation) {
 
         try {
             reservation = this.reservationService.update(reservation);

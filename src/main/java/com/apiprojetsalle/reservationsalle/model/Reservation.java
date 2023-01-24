@@ -31,9 +31,9 @@ public class Reservation {
     private Set<ReservationSalle> reservationSalles;
 
     /*Ajout de la relation OneToOne entre Reservation et Evenement*/
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "evenement_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "reservation")
     private Evenement evenement;
+
 
     public Reservation() {
     }

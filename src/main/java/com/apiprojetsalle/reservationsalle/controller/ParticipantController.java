@@ -59,7 +59,7 @@ public class ParticipantController {
     }
 
     @RequestMapping(value = "/participant/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Participant updateParticipant(@RequestBody Participant participant, @PathVariable  int id) {
+    public Participant updateParticipant(@RequestBody Participant participant) {
 
         try {
             participant = this.participantService.update(participant);

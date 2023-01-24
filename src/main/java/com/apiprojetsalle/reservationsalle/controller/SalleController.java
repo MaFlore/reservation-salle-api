@@ -59,7 +59,7 @@ public class SalleController {
     }
 
     @RequestMapping(value = "/salle/modifier/{id}", method = RequestMethod.PUT, headers = "accept=Application/json")
-    public Salle updateSalle(@RequestBody Salle salle, @PathVariable  int id) {
+    public Salle updateSalle(@RequestBody Salle salle) {
 
         try {
             salle = this.salleService.update(salle);

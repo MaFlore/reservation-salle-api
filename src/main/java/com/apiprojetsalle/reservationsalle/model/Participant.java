@@ -25,8 +25,8 @@ public class Participant {
 
     /*Ajout de la relation  ManyToOne entre Participant et Evenement*/
     @ManyToOne()
-    @JoinColumn(name = "participant_id")
-    private Participant participant;
+    @JoinColumn(name = "evenement_id")
+    private Evenement evenement;
 
     public Participant() {
     }
@@ -74,12 +74,12 @@ public class Participant {
         this.telephone = telephone;
     }
 
-    public Participant getParticipant() {
-        return participant;
+    public Evenement getEvenement() {
+        return evenement;
     }
 
-    public void setParticipant(Participant participant) {
-        this.participant = participant;
+    public void setEvenement(Evenement evenement) {
+        this.evenement = evenement;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Participant {
                 ", prenom='" + prenom + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", participant=" + participant +
+                ", evenement=" + evenement +
                 '}';
     }
 }
